@@ -2,12 +2,13 @@ body {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
-    line-height: 1.2px;
+    line-height: 1.8;
+    font-weight: 400;
 }
 
 h1, h2, h3 {
     color: #333;
-    line-height: 1.2px;
+    line-height: 1.2;
     margin-bottom: 10px;
     font-weight: 400;
 }
@@ -235,7 +236,47 @@ img {
     animation: scrolltodown 2s ease infinite;
 }
 
-.scroll-to-down
+.scroll-to-down .fas{
+    animation: scrolltodown 2s ease infinite;
+}
+
+.section-intro {
+    margin-bottom: 44px;
+}
+
+/* grid */
+.grid {
+    display: grid;
+    gap: 44px;
+}
+
+.three-col-grid {
+    grid-template-columns: repeat(3, 1fr);
+
+}
+
+/* service */
+
+#services .grid {
+    gap: 0;
+}
+
+.service:nth-child(odd) {
+    background-color: #f8f8f8;
+}
+
+.service {
+    padding: 44px;
+}
+
+.service p {
+   font-size: 14px; 
+}
+
+.service .icon {
+    font-size: 38px;
+    color: #fac562;
+}
 
 
 
