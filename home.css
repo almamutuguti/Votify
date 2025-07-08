@@ -250,6 +250,11 @@ img {
     gap: 44px;
 }
 
+.two-col-grid {
+    grid-template-columns: repeat(2, 1fr);
+
+}
+
 .three-col-grid {
     grid-template-columns: repeat(3, 1fr);
 
@@ -277,6 +282,203 @@ img {
     font-size: 38px;
     color: #fac562;
 }
+
+/* leader */
+
+.leader {
+    position: relative;
+    overflow: hidden;
+}
+
+.leader img {
+    height: 100%;
+    object-fit: cover;
+    transition: all 0.4s ease-in-out;
+}
+
+.leader .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    padding: 44px;
+    display: flex;
+    align-items: center;
+    transition: all 0.4s ease-in-out;
+    opacity: 0;
+    
+}
+
+.leader .overlay h2 {
+    color: white;
+}
+
+.leader .overlay p {
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.leader:hover .overlay {
+    opacity: 1;
+    display: flex;
+}
+
+.leader:hover img{
+    transform: rotate(15deg) scale(1.5);
+}
+
+/* info section */
+#information {
+    background-color: #f8f8f8;
+}
+
+.post h3 {
+    margin-top: 16px;
+}
+
+/* contact */
+#contact .grid {
+    grid-template-columns: 1fr 2.5fr;
+}
+
+form {
+    width: 100%;
+}
+
+.contact-widget {
+    margin-bottom: 44px;
+}
+
+.form-group {
+    margin-bottom: 24px;
+}
+
+.form-group .form-input {
+    display: block;
+    width: 100%;
+    padding: 16px;
+    border-radius: 0;
+    border: none;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.form-group .form-input:focus {
+    outline: none;
+}
+
+.login {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url('/images/vote.jpg');
+    background-position: center;
+    background-size: cover;
+   
+}
+
+.wrapper {
+    width: 420px;
+    background-color: white;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    color: #333;
+    border-radius: 12px;
+    padding: 30px 40px;
+}
+
+.wrapper h1{
+    font-size: 20px;
+    text-align: center;
+
+}
+
+.wrapper .input-box {
+    position: relative;
+    width: 100%;
+    height: 50px;
+    background-color: white;
+    margin: 40px 0;
+}
+
+.input-box input {
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    outline: none;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    border-radius: 4px;
+    font-size: 16px;
+    padding: 20px 45px 20px 20px;
+    border-bottom: #333 1px solid;
+}
+
+.input-box input::placeholder {
+    color: #333;
+}
+
+.input-box i{
+    position: absolute;
+    right: 20px;
+    top: 30%;
+    transform: translate(-50%);
+    font-size: 20px;
+}
+
+.wrapper .remember-forgot {
+    display: flex;
+    justify-content: space-between;
+    font-size: 14.5px;
+    margin: -15px 0 15px;
+}
+
+.remember-forgot label input {
+    accent-color: #fff;
+    margin-right: 3px;
+}
+
+.remember-forgot a{
+    color: #333;
+    text-decoration: none;
+}
+
+.remember-forgot a:hover {
+    text-decoration: underline;
+}
+
+.wrapper .btn{
+    width: 100%;
+    height: 45px;
+    background: #fff;
+    border: none;
+    outline: none;
+    border-radius: 40px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    font-size: 16px;
+    color: #333;
+    font-weight: 600;
+}
+
+.wrapper .register-link {
+    font-size: 14.5px;
+    text-align: center;
+    margin: 20px 0 15px;
+    
+}
+
+.register-link p a{
+    color: #333;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.register-link p a:hover{
+
+}
+
+
 
 
 

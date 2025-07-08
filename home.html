@@ -2,44 +2,48 @@
 <html lang="en">
 
 <head>
-
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Votify</title>
-        <link rel="stylesheet" href="home.css">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Votify</title>
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="home.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
         integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
-    </head>
+   
 </head>
+
 
 <body>
 
-   <!-- navbar -->
+    <!-- navbar -->
     <div class="navbar">
         <div class="container">
             <a href="#" class="brand">Votify.</a>
             <ul class="nav-links">
-                <li class="active"><a href="home.html">Home</a></li>
+                <li class="active"><a href="#hero">Home</a></li>
                 <li><a href="#about">About</a></li>
                 <li><a href="#blogs">Blogs </a></li>
-                <li><a href="#">Vote</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li><a href="user.html">Vote</a></li>
+                <li><a href="admin.html"><i class="fa-solid fa-user-tie"></i></a></li>
             </ul>
             <div class="hamburger">
-              <span></span> 
-              <span></span> 
+                <span></span>
+                <span></span>
             </div>
         </div>
     </div>
 
     <!-- //navbar -->
-  
+
 
     <!-- hero -->
     <div id="hero">
         <div class="container">
-            <h1 class="heading-xl"><span>Creative Agency</span></h1>
+            <h1 class="heading-xl"><span>Modern Voting, Smarter Schools</span></h1>
             <a href="#" class="scroll-to-down"><i class="fas fa-arrow-down"></i></a>
         </div>
     </div>
@@ -48,62 +52,231 @@
     <!-- About us -->
     <section id="about">
         <div class="container">
-            <div class="section-intro">
+            <div class="section-intro" data-aos="fade-up">
                 <h1 class="heading-1">Learn About Us</h1>
             </div>
             <div class="grid three-col-grid">
-                <div class="service">
-                    <div class="icon"><i class="fas fa-tools"></i></div>
-                    <h3 class="heading-3">Service Title</h3>
+                <div class="service" data-aos="fade-up" data-aos-delay="300">
+                    <div class="icon"><i class="fas fa-house"></i></div>
+                    <h3 class="heading-3">Who We Are</h3>
                     <p>
-                        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sed ratione doloremque deserunt voluptatibus voluptates delectus voluptate dolores. Quibusdam velit amet quidem quis fugiat ea, mollitia earum iusto eos exercitationem accusamus.
+                        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sed ratione doloremque deserunt
+                        voluptatibus voluptates delectus voluptate dolores. Quibusdam velit amet quidem quis fugiat ea,
+                        mollitia earum iusto eos exercitationem accusamus.
                     </p>
                 </div>
 
-                <div class="service">
-                    <div class="icon"><i class="fas fa-tools"></i></div>
-                    <h3 class="heading-3">Service Title</h3>
+                <div class="service" data-aos="fade-up" data-aos-delay="600">
+                    <div class="icon"><i class="fas fa-book"></i></div>
+                    <h3 class="heading-3">Purpose</h3>
                     <p>
-                        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sed ratione doloremque deserunt voluptatibus voluptates delectus voluptate dolores. Quibusdam velit amet quidem quis fugiat ea, mollitia earum iusto eos exercitationem accusamus.
+                       In a fast-evolving digital world, we believe voting
+                        should be simple, secure, and accessible to all
+                         students. Our e-voting system is designed to
+                          bring elections into the 21st century—removing 
+                          the need for paper ballots, long lines,
+                           and manual counting. It gives every student a 
+                           voice in shaping the leadership of their school with just a few clicks.
                     </p>
                 </div>
 
-                <div class="service">
-                    <div class="icon"><i class="fas fa-tools"></i></div>
-                    <h3 class="heading-3">Service Title</h3>
+                <div class="service" data-aos="fade-up" data-aos-delay="900">
+                    <div class="icon"><i class="fas fa-person"></i></div>
+                    <h3 class="heading-3">Impact</h3>
                     <p>
-                        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sed ratione doloremque deserunt voluptatibus voluptates delectus voluptate dolores. Quibusdam velit amet quidem quis fugiat ea, mollitia earum iusto eos exercitationem accusamus.
+                        This system empowers students to engage in
+                         leadership and democracy early on. It promotes 
+                         transparency, builds trust, and ensures that 
+                         every vote counts—no matter where or when it's 
+                         cast. With our platform, elections become more 
+                         efficient, inclusive, and exciting for the entire
+                          school community.
                     </p>
                 </div>
 
-                <div class="service">
-                    <div class="icon"><i class="fas fa-tools"></i></div>
-                    <h3 class="heading-3">Service Title</h3>
-                    <p>
-                        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sed ratione doloremque deserunt voluptatibus voluptates delectus voluptate dolores. Quibusdam velit amet quidem quis fugiat ea, mollitia earum iusto eos exercitationem accusamus.
-                    </p>
-                </div>
-
-                <div class="service">
-                    <div class="icon"><i class="fas fa-tools"></i></div>
-                    <h3 class="heading-3">Service Title</h3>
-                    <p>
-                        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sed ratione doloremque deserunt voluptatibus voluptates delectus voluptate dolores. Quibusdam velit amet quidem quis fugiat ea, mollitia earum iusto eos exercitationem accusamus.
-                    </p>
-                </div>
-
-                <div class="service">
-                    <div class="icon"><i class="fas fa-tools"></i></div>
-                    <h3 class="heading-3">Service Title</h3>
-                    <p>
-                        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sed ratione doloremque deserunt voluptatibus voluptates delectus voluptate dolores. Quibusdam velit amet quidem quis fugiat ea, mollitia earum iusto eos exercitationem accusamus.
-                    </p>
-                </div>
+               
             </div>
         </div>
     </section>
 
-    
+    <!-- blogs -->
+    <!-- Leadership -->
+    <section id="leadership">
+        <div class="container">
+            <div class="section-intro">
+                <h1 class="heading-2">Inspirational Leaders</h1>
+            </div>
+            <a href="#" class="grid two-col-grid">
+                <div class="leader">
+                    <img src="/images/leader.jpg" alt="leader">
+                    <div class="overlay">
+                        <div>
+                            <h2 class="heading-3">Leaders</h2>
+                            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Possimus expedita culpa illum
+                                amet distinctio quia.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="leader">
+                    <img src="/images/leader.jpg" alt="leader">
+                    <div class="overlay">
+                        <div>
+                            <h2 class="heading-3">Leaders</h2>
+                            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Possimus expedita culpa illum
+                                amet distinctio quia.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="leader">
+                    <img src="/images/leader.jpg" alt="leader">
+                    <div class="overlay">
+                        <div>
+                            <h2 class="heading-3">Leaders</h2>
+                            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Possimus expedita culpa illum
+                                amet distinctio quia.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="leader">
+                    <img src="/images/leader.jpg" alt="leader">
+                    <div class="overlay">
+                        <div>
+                            <h2 class="heading-3">Leaders</h2>
+                            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Possimus expedita culpa illum
+                                amet distinctio quia.</p>
+                        </div>
+                    </div>
+                </div>
+            </a>
+        </div>
+    </section>
+
+    <!-- documentation -->
+    <section id="informtation">
+        <div class="conatiner">
+            <div class="section-intro">
+                <h1 class="heading-2">Voting</h1>
+            </div>
+            <div class="grid three-col-grid">
+                <div class="post" data-aos="flip-left" data-aos-delay="300">
+                    <img src="/images/politics.jpg" alt="politics">
+                    <h3><a href="#">Post Title</a></h3>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo saepe rem minima pariatur sunt
+                        perspiciatis aspernatur esse, cupiditate id nostrum exercitationem. Possimus omnis earum animi
+                        sint dolor consequatur dolorum esse.</p>
+                </div>
+
+                <div class="post"  data-aos="flip-left" data-aos-delay="600">
+                    <img src="/images/politics.jpg" alt="politics">
+                    <h3><a href="#">Post Title</a></h3>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo saepe rem minima pariatur sunt
+                        perspiciatis aspernatur esse, cupiditate id nostrum exercitationem. Possimus omnis earum animi
+                        sint dolor consequatur dolorum esse.</p>
+                </div>
+
+                <div class="post"  data-aos="flip-left" data-aos-delay="900">
+                    <img src="/images/politics.jpg" alt="politics">
+                    <h3><a href="#">Post Title</a></h3>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo saepe rem minima pariatur sunt
+                        perspiciatis aspernatur esse, cupiditate id nostrum exercitationem. Possimus omnis earum animi
+                        sint dolor consequatur dolorum esse.</p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section id="contact">
+        <div class="container">
+            <div class="grid">
+                <div class="contact-info">
+                    <div class="section-intro">
+                        <h1 class="heading-2">Contact Info</h1>
+                    </div>
+                    <div class="contact-widget">
+                        <h3 class="heading-3">Email</h3>
+                        <ul>
+                            <li>johndoe@gmail.com</li>
+                            <li>johndoe@gmail.com</li>
+                        </ul>
+                    </div>
+
+                    <div class="contact-widget">
+                        <h3 class="heading-3">Phone</h3>
+                        <ul>
+                            <li>+254 712 345 678</li>
+                            <li>+254 712 345 678</li>
+                        </ul>
+                    </div>
+
+                    <div class="contact-widget">
+                        <h3 class="heading-3">Location</h3>
+                        <ul>
+                            <li>345 somewhere ville, Nairobi, Kenya</li>
+
+                        </ul>
+                    </div>
+                </div>
+                <div class="contact-form">
+                    <div class="section-intro">
+                        <h1 class="heading-2">Send Feedback</h1>
+                    </div>
+                    <form action="#">
+                        <div class="form-group">
+                            <input type="text" class="form-input" placeholder="John Doe">
+                        </div>
+
+                        <div class="form-group">
+                            <input type="email" class="form-input" placeholder="john@example.com">
+                        </div>
+
+                        <div class="form-group">
+                            <textarea name="" rows="5" class="form-input" placeholder="Hi there..."></textarea>
+                        </div>
+                        <div class="form-group">
+                            <button class="btn">Send Message</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+
+
+    <footer class="bg-gray-200  shadow-sm">
+        <div class="w-full max-w-screen-xl mx-auto p-4 md:py-8">
+            <div class="sm:flex sm:items-center sm:justify-between">
+                <a href="#" class="flex items-center mb-4 sm:mb-0 space-x-3 rtl:space-x-reverse">
+                    <span class="self-center text-2xl font-bold whitespace-nowrap text-gray-600">Votify</span>
+                </a>
+                <ul
+                    class="flex flex-wrap items-center mb-6 text-sm font-medium text-gray-500 sm:mb-0 dark:text-gray-400">
+                    <li>
+                        <a href="#" class="hover:underline me-4 md:me-6">About</a>
+                    </li>
+                    <li>
+                        <a href="#about" class="hover:underline me-4 md:me-6">Privacy Policy</a>
+                    </li>
+                    <li>
+                        <a href="#" class="hover:underline me-4 md:me-6">Licensing</a>
+                    </li>
+                    <li>
+                        <a href="#" class="hover:underline">Contact</a>
+                    </li>
+                </ul>
+            </div>
+            <hr class="my-6 border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-8" />
+            <span class="block text-sm text-gray-500 sm:text-center dark:text-gray-400">© 2025 <a href="#"
+                    class="hover:underline">Votify™</a>. All Rights Reserved.</span>
+        </div>
+    </footer>
+
+
 
 
 
