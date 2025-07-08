@@ -15,11 +15,9 @@ hamburger.addEventListener('click', () => {
     hamburger.classList.toggle('active')
 })
 
+AOS.init();
 
-    
 
-
-AOS.init()
 
 
 

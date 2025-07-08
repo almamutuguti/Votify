@@ -35,41 +35,6 @@
         </div>
     </div>
 
-
-    <section class="login">
-        <div class="wrapper">
-            <form action="submit" id="sign-in">
-                <h1>Register</h1>
-                <div class="input-box">
-                    <input type="text" placeholder="Username" required>
-                    <i class="fas fa-user"></i>
-                </div>
-                <div class="input-box">
-                    <input type="email" placeholder="Email" required>
-                    <i class="fas fa-envelope"></i>
-                </div>
-                <div class="input-box">
-                    <input type="password" placeholder="Create Password" required>
-                    <i class="fas fa-lock"></i>
-                </div>
-                <div class="input-box">
-                    <input type="password" placeholder="Confirm Password" required>
-                    <i class="fas fa-lock"></i>
-                </div>
-                <div class="remember-forgot">
-                    <label><input type="checkbox">Remember Me</label>
-                </div>
-                <button type="submit" class="btn" href="user.html">Register</button>
-                <div class="register-link">
-                    <p>Have an account? <a href="user.html">Login</a></p>
-                </div>
-            </form>
-        </div>
-    </section>
-
-
-
-
     <footer class="bg-gray-200  shadow-sm">
         <div class="w-full max-w-screen-xl mx-auto p-4 md:py-8">
             <div class="sm:flex sm:items-center sm:justify-between">
@@ -99,20 +64,6 @@
     </footer>
 
     <script src="home.js"></script>
-    <script src="register.js"></script>
-    <!-- <script>
-        const form = document.getElementById("sign-in");
-        form.addEventListener('submit', (e) => {
-            e.preventDefault();
-            const fd = new FormData(form);
-            const obj = Object.fromEntries(fd);
-
-            const json = JSON.stringify(obj);
-            localStorage.setItem('form', json);
-
-            window.location.href = "ballot.html";
-        })
-    </script> -->
 </body>
 
 </html>
