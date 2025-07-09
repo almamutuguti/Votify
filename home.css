@@ -90,6 +90,8 @@ img {
 
 .nav-links {
     display: flex;
+    z-index: 99;
+
 }
 
 .nav-links li:not(:last-child) {
@@ -112,10 +114,19 @@ img {
     box-shadow: 0 2px #fac562;
 }
 
+.closeIcon {
+    display: none;
+}
+
+.showMenu {
+    transform: translateY(0);
+}
+
 .hamburger {
     display: block;
     cursor: pointer;
     display: none;
+    z-index: 100;
     
 }
 
