@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome!</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-gray-100 flex items-center justify-center h-screen">
+
+    <div class="w-full max-w-md">
+        <!-- Logged In View -->
+        <div id="app-container" class="bg-white p-8 rounded-lg shadow-lg text-center">
+            <h2 class="text-2xl font-bold mb-4 text-gray-800">Welcome, <span id="welcome-user"></span>!</h2>
+            <p class="text-gray-600 mb-6">You have successfully logged in and are viewing a protected page.</p>
+            <button id="logout" class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
+                Logout
+            </button>
+        </div>
+    </div>
+    
+    <!-- Include the shared authentication script -->
+    <script src="auth.js"></script>
+</body>
+</html>
