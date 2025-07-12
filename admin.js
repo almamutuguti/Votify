@@ -114,6 +114,8 @@ document.getElementById("candidate-form").addEventListener("submit", function (e
     
 });
 
+function
+
 
 
 
