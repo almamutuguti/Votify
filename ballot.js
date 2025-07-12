@@ -72,7 +72,7 @@ document.getElementById("submit-vote").addEventListener("click", () => {
     form.innerHTML = "<p class='text-center text-red-600 font-semibold'>Thank you! Your vote has been recorded.</p>";
     document.getElementById("submit-vote").style.display ="none";
 
-    let stored = JSON,parse(localStorage.getItem("votes-record")) || [];
+    let stored = JSON.parse(localStorage.getItem("votes-record")) || [];
     storedVotes.push(votes);
     localStorage.setItem("votes-record", JSON.stringify(storedVotes));
 });

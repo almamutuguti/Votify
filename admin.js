@@ -114,7 +114,60 @@ document.getElementById("candidate-form").addEventListener("submit", function (e
     
 });
 
-function
+function renderVoteResults() {
+    const candidates = JSON.parse(localStorage.getItem("candidates-list")) || [];
+    const votes = JSON.parse(localStorage.getItem("votes-record")) || [];
+
+    if (!votes.length) {
+        resultsContainer.innerHTML = "<p class='text-center text-gray-500'>No votes have been submitted yet.</p>";
+        return;
+    }
+    const candidateLookup = {};
+    candidates.forEach((c, index) => {
+        if (!candidateLookup[c.position]) candidateLookup[c.position] = {};
+        candidateLookup[c.position][index] = c.name;
+    });
+
+    const voteCount = {};
+    votes.forEach(vote => {
+        Object.entries(vote).forEach(([position, index]) => {
+            if (!voteCount[position]) voteCount[position] = {};
+            voteCount[position][index] = (voteCount[position][index] || 0) + 1;
+        });
+    });
+
+    const resultsContainer = document.getElementById("results-list");
+    resultsContainer.innerHTML = "";
+
+    Object.keys(voteCount).forEach(position => {
+        const section = document.createElement("div");
+        section.classList.add("mb-10", "p-4", "border-b", "border-gray-300");
+
+        const title = document.createElement("h3");
+        title.textContent = `Results for ${position}`;
+        title.classList.add("text-xl", "font-bold", "mb-4", "text-gray-700");
+        section.appendChild(title);
+
+        const list = document.createElement("ul");
+        Object.entries(voteCount[position]).forEach(([index, count]) => {
+            const name = candidateLookup[position][index];
+            const item = document.createElement("li");
+            item.textContent = `${name}: ${count} vote${count !== 1 ? "s" : ""} `;
+            item.classList.add("mb-2", "text-gray-600")
+            list.appendChild(item)
+        });
+
+        section.appendChild(list);
+        resultsContainer.appendChild(section);
+
+    });
+
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+    renderCandidates();
+    renderVoteResults();
+});
 
 
 
