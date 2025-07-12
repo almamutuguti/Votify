@@ -1,129 +1,120 @@
-const user = JSON.parse(localStorage.getItem("LoggedInUser"));
-if (!user || user.role !== "admin") {
-    alert("Access denied. Admins only.");
-    window.location.href = "login.html";
+
+
+function renderCandidates() {
+    const candidatesList = document.getElementById("candidates-list");
+    const candidates = JSON.parse(localStorage.getItem("candidates-list")) || [];
+
+
+    candidatesList.innerHTML = ``;
+    // candidates.forEach((c, index) => {
+    //     const div = document.createElement("div");
+    //     div.classList.add( "rounded-lg", "bg-gray-600",  "p-4", "flex", "flex-col", "items-center" , "text-white");
+
+    //     div.innerHTML =
+    //         `<img src="${c.profile}" alt="profile" class="h-32 object-cover rounded-full mb-4 w-32">
+    //         <h2 class="text-3xl font-bold">${c.name}</h2>
+    //         <h4 class="text-xl font-semibold">${c.position}</h4>
+    //         <p class="text-sm">${c.email}</p>
+    //         <p class="text-l">Click here to read the manifesto: <a href="${c.manifesto}">Read Manifesto</a></p>
+
+    //         <button class="bg-red-600 text-white px-4 py-2 mt-4 rounded delete-btn" data-index="${index}"> Delete</button>
+                
+    //         `;
+
+    //     candidatesList.appendChild(div);
+    // });
+    
+    const grouped = {};
+    candidates.forEach((c, index) => {
+        if (!grouped[c.position]) {
+            grouped[c.position] = [];
+        }
+        if (grouped[c.position].length < 3) {
+            grouped[c.position].push({...c, index})
+        }
+    });
+
+    Object.keys(grouped).forEach(position => {
+        const section = document.createElement("div");
+        section.classList.add("border-b", "border-gray-300", "pb-6", "mb-10");
+
+        const title = document.createElement("h3");
+        title.textContent = position;
+        title.classList.add("text-2xl", "font-bold", "mb-4", "text-gray-800" );
+
+        const grid = document.createElement("div");
+        grid.classList.add("grid", "grid-cols-1", "md:grid-cols-2", "lg:grid-cols-3", "gap-6");
+
+        grouped[position].forEach((c) => {
+            const div = document.createElement("div");
+            div.classList.add( "rounded-lg", "bg-gray-600",  "p-4", "flex", "flex-col", "items-center" , "text-white");
+
+            div.innerHTML =
+            `<img src="${c.profile}" alt="profile" class="h-32 object-cover rounded-full mb-4 w-32">
+            <h2 class="text-3xl font-bold">${c.name}</h2>
+            <h4 class="text-xl font-semibold">${c.position}</h4>
+            <p class="text-sm">${c.email}</p>
+            <p class="text-l">Click here to read the manifesto: <a href="${c.manifesto}" target="_blank">Read Manifesto</a></p>
+
+            <button class="bg-red-600 text-white px-4 py-2 mt-4 rounded delete-btn" data-index="${c.index}"> Delete</button>
+                
+            `;
+            grid.appendChild(div);
+
+        });
+        section.appendChild(title);
+        section.appendChild(grid);
+        candidatesList.appendChild(section);
+    });
+    document.getElementById("candidate-form").reset();
+
+    document.querySelectorAll(".delete-btn").forEach(btn => {
+        btn.addEventListener("click", function() {
+            const index = this.getAttribute("data-index");
+            let candidates = JSON.parse(localStorage.getItem("candidates-list")) || [];
+            candidates.splice(index, 1);
+            localStorage.setItem("candidates-list", JSON.stringify(candidates));
+            renderCandidates();
+        })
+    })
+
 }
 
-const form = document.getElementById("add-candidate-form");
-const candidateList = document.getElementById("candidate-list");
-const resultsList = document.getElementById("results-list");
+document.addEventListener("DOMContentLoaded", renderCandidates);
+document.getElementById("candidate-form").addEventListener("submit", function (event) {
+    event.preventDefault();
 
-form.addEventListener("submit", function (e) {
-    e.preventDefault();
+    const name = document.getElementById("candidate-name").value;
+    const position = document.getElementById("position").value;
+    const email = document.getElementById("candidate-email").value;
+    const manifesto = document.getElementById("manifesto").files[0];
+    const profile = document.getElementById("profile-photo").files[0];
+    const candidatesList = document.getElementById("candidates-list");
 
-    const name = form.name.value.trim();
-    const position = form.position.value.trim();
-    const manifesto = form.manifesto.value.trim();
+    const reader = new FileReader();
 
-    if (!name || !position || !manifesto) return;
+    reader.onload = function (e) {
+        const profileURL = e.target.result;
+        const manifestoURL = manifesto ? URL.createObjectURL(manifesto) : "";
 
-    let candidates = JSON.parse(localStorage.getItem("candidates")) || [];
 
-    const exists = candidateList.some(c => c.name === name && c.position === position);
-    if (exists) {
-        alert("Candidate already exists for this position");
-        return;
+        let candidates = JSON.parse(localStorage.getItem("candidates-list")) || [];
+
+        candidates.push({ name, position, email, manifesto: manifestoURL, profile: profileURL });
+        localStorage.setItem("candidates-list", JSON.stringify(candidates));
+
+        renderCandidates();
+        
+
+    };
+
+    if (profile) {
+        reader.readAsDataURL(profile);
     }
-
-    candidateList.push({name, position, manifesto});
-    localStorage.setItem("candidates", JSON.stringify(candidates));
-
-    form.reset();
-    loadCandidates();
-    loadResults();
-
+    
 });
 
-function loadCandidates () {
-    let candidates = JSON.parse(localStorage.getItem("candidates")) || [];
-    candidateList.innerHTML = ""
-
-    candidates.forEach((c, index) => {
-        const div = document.createElement("div");
-        div.innerHTML = `
-        <input type="text" value="${c.name} data-type="name" data-index="${index}" disabled>
-        <input type="text" value="${c.position} data-type="position" data-index="${index}" disabled>
-        <textarea data-type="manifesto" data-index="${index}" disabled>${c.manifesto}</textarea>
-        <button onclick="enableEdit(${index})">Edit</button>
-        <button onclick="saveEdit(${index})">Save</button>
-        <button onclick="deleteCandidate(${index})">Delete</button>
-        `;
-
-        candidateList.appendChild(div);
-    });
-
-}
-
-function enableEdit(index) {
-    document.querySelectorAll(`[data-index="${index}"]`).forEach(el => el.disabled = false);
-
-}
-
-function saveEdit(index) {
-    const inputs = document.querySelectorAll(`[data-index="${index}"]`);
-    const name = inputs[0].value.trim();
-    const position = inputs[1].value.trim();
-    const manifesto = inputs[2].value.trim();
-
-    let candidates = JSON.parse(localStorage.getItem("candidates")) || [];
-    candidates[index] = {name, position, manifesto};
-    localStorage.setItem("candidates", JSON.stringify(candidates));
-
-    loadCandidates();
-    loadResults();
-}
-
-function deleteCandidate(index) {
-    let candidates = JSON.parse(localStorage.getItem("candidates")) || [];
-    candidates.splice(index, 1);
-    localStorage.setItem("candidates", JSON.stringify(candidates));
-    loadCandidates();
-    loadResults();
-}
-
-function loadResults() {
-    const candidates= JSON.parse(localStorage.getItem("candidates")) || [];
-    const users = JSON.parse(localStorage.getItem("users")) || [];
 
 
-    //group by position
-    const results = {};
 
-    candidates.forEach(c => {
-        if (!results[c.position]) {
-            results[c.position] = {};
-        }
 
-        results[c.position][c.name] = 0;
-    });
-
-    users.forEach(u => {
-        if (u.vote) {
-            const [votedName, votedPosition] = u.vote.split("||");
-
-            if (results[votedPosition] && results[votedPosition][votedName] !== undefined) {
-                results[votedPosition][votedName]++;
-            }
-        }
-    });
-
-    resultsList.innerHTML = "";
-
-    for (const position in results) {
-        const section = document.createElement('div');
-        section.innerHTML = `<strong>${position}</strong><ul>${
-            Object.entries(results[position])
-        .map(([name, count]) => `<li>${name}: ${count} voter(s)</li>`)
-        .join("")}</ul>`;
-
-        resultsList.appendChild(section);
-    }
-}
-
-function logout() {
-    localStorage.removeItem("loggedInUser");
-    window.location.href = "login.html";
-}
-
-loadCandidates();
-loadResults();

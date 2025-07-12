@@ -503,6 +503,19 @@ form {
     }
 }
 
+#display {
+    background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.5)), url('/images/vote3.jpg');
+    background-position: center;
+    background-size: cover;
+}
+
+#display .heading {
+    text-align: center;
+    font-size: 44px;
+    color: azure;
+    font-weight: 600;
+}
+
 
 
 
