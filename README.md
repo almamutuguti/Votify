@@ -24,8 +24,7 @@
 | `admin-sign-in.html`      | Facilitates admin login                                          |
 | `ballot.html`       | Voting interface for users                                 |
 | `admin.html`      | Admin dashboard for adding candidates and viewing results  |
-| `winners.html`    | Displays winning candidates (after admin publishes results)|
-| `notification.html`| Voter summary and result view based on visibility trigger |
+| `notification.html`    | Displays winning candidates (after admin publishes results)|
 | `style.css`       | Custom styles                                              |
 | `auth.js`       | Login and Registration form handling               |q
 | `script.js`       | Candidate form logic, vote result rendering                |
@@ -33,8 +32,8 @@
 | `admin.js`        | Admin-specific result aggregation and visibility logic     |
 | `notification.js` | Shows user voting summary and status and displays top candidates per position                      |
 | `ballot.js` | Handles voting                       |
-| `notification.js` | Shows user voting summary and status                       |
-| `notification.js` | Shows user voting summary and status                       |
+| `sign-in.js` | Handles Registartion form                       |
+
 
 ---
 
