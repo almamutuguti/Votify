@@ -133,3 +133,17 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 });
+
+document.getElementById("logout-btn")?.addEventListener("click", () => {
+    // Remove session-specific data
+    localStorage.removeItem("hasVoted");
+    localStorage.removeItem("user-votes");
+    localStorage.removeItem("voteTime");
+
+    //clear all if needed....localeStorage.clear()
+
+    //redirect to the home page
+    window.location.href = "index.html";
+   
+});
+

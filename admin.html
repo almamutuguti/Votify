@@ -39,19 +39,7 @@
             <h2 class="heading items-center justify-center ml-22  mb-10">
                 Welcome Admin
             </h2>
-
-            <!-- <form id="add-candidate-form" class=" bg-white justify-center items-center rounded-lg p-10 ml-16 mt-10">
             
-            <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white" for="file_input">Upload Image</label>
-            <input class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400" id="file_input" type="file">
-            <input type="text" name="candidate-name" placeholder="New Candidate Name" required class="w-full p-2 border-b-2 border-gray-500 outline-none focus:bg-gray-200"><br>
-            <input type="text" name="position" placeholder="Desired Position" required class="w-full p-2 border-b-2 border-gray-500 outline-none"><br>
-            <input type="file" name="manifesto" rows="3" placeholder="Candidate Manifesto" required class="w-full p-4 border-b-2 border-gray-500 outline-none"><br>
-            <button type="submit" id="btn" class="ml-20 mt-4 bg-black text-white p-2 rounded-lg hover:bg-gray-500 transition-all duration-700">Add Candidate</button>
-            </form> -->
-
-
-
             <form class="max-w-md mx-auto bg-white ml-16 lg:m-auto p-4 rounded-md" id="candidate-form">
                 <div class="relative  w-full mb-5 group pt-4">
                     <input type="text" name="candidate-name" id="candidate-name"
@@ -97,14 +85,15 @@
 
         </section>
 
-        <!-- <button class="text-white bg-blue-700 hover:bg-blue-500 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" onclick="logout()">Logout</button> -->
+        
     </div>
 
     
     <div class="bg-white mt-10" id="candidates-list"></div>
-
-   
     <div class="bg-white mt-10" id="results-list"></div>
+    <button onclick="publishResults()" class="bg-green text-white px-4 py-2 rounded">Publish Results To Voters</button>
+
+    <button id="logout-btn" class="bg-red-600 text-white px-4 py-2 rounded mt-6">Logout</button>
 
     <footer class="bg-gray-200  shadow-sm w-full mt-40">
         <div class="w-full max-w-screen-xl mx-auto p-4 md:py-8">

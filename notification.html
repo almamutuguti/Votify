@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Votify</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
     <script src="https://cdn.tailwindcss.com"></script>
@@ -12,41 +12,33 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
         integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
-
 </head>
-
-<body class="h-screen w-full">
+<body>
     <!-- navbar -->
     <div class="navbar">
         <div class="container">
             <a href="#" class="brand">Votify.</a>
             <ul class="nav-links">
                 <li class="active"><a href="#hero">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#blogs">Blogs </a></li>
-                <li><a href="#contact">Contact</a></li>
-                <li><a href="user.html">Vote</a></li>
-                <li><a href="admin.html"><i class="fa-solid fa-user-tie"></i></a></li>
-                <li><a href="notification.html"><i class="fa-solid fa-envelope"></i></a></li>
+                <li><a class="menuItem" href="#about">About</a></li>
+                <li><a class="menuItem" href="#leadership">Blogs </a></li>
+                <li><a class="menuItem" href="#contact">Contact</a></li>
+                <li><a class="menuItem" href="user.html">Vote</a></li>
+                <li><a class="menuItem" href="admin-sign-in.html"><i class="fa-solid fa-user-tie"></i></a></li>
             </ul>
-            <div class="hamburger">
-                <span></span>
-                <span></span>
-            </div>
+            <button class="hamburger">
+                <i class="menuIcon material-icons">menu</i>
+                <i class="closeIcon material-icons">close</i>
+            </button>
         </div>
     </div>
 
-    <section class="bg-gray-400">
-        <div class="container mx-auto p-6">
-            <h1 class="text-3xl font-bold mb-8 text-center">Vote for Your Candidates</h1>
-            <form id="voting-form"></form>
-            <button id="submit-vote" class="bg-blue-600 text-white px-6 py-3 rounded mt-6 block mx-auto">Submit Vote</button>
-        </div>
+    <div class="container mx-auto p-6">
+        <h1 class="text-3xl font-bold mb-8 text-center">Elections Winners</h1>
+        <div id="winner-list"></div>
+    </div>
 
-        <button id="logout-btn" class="bg-red-600 text-white px-4 py-2 rounded mt-6 mx-auto">Logout</button>
-    </section>
 
-    
     <footer class="bg-gray-200  shadow-sm">
         <div class="w-full max-w-screen-xl mx-auto p-4 md:py-8">
             <div class="sm:flex sm:items-center sm:justify-between">
@@ -75,8 +67,10 @@
         </div>
     </footer>
 
-    <script src="ballot.js"></script>
+
+
+
+    <script src="notification.js"></script>
     <script src="script.js"></script>
 </body>
-
 </html>

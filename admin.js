@@ -118,10 +118,14 @@ function renderVoteResults() {
     const candidates = JSON.parse(localStorage.getItem("candidates-list")) || [];
     const votes = JSON.parse(localStorage.getItem("votes-record")) || [];
 
+    const resultsContainer = document.getElementById("results-list");
+    resultsContainer.innerHTML = "";
+
     if (!votes.length) {
         resultsContainer.innerHTML = "<p class='text-center text-gray-500'>No votes have been submitted yet.</p>";
         return;
     }
+
     const candidateLookup = {};
     candidates.forEach((c, index) => {
         if (!candidateLookup[c.position]) candidateLookup[c.position] = {};
@@ -136,29 +140,40 @@ function renderVoteResults() {
         });
     });
 
-    const resultsContainer = document.getElementById("results-list");
-    resultsContainer.innerHTML = "";
+
 
     Object.keys(voteCount).forEach(position => {
-        const section = document.createElement("div");
-        section.classList.add("mb-10", "p-4", "border-b", "border-gray-300");
+        const table = document.createElement("table");
+        table.classList.add("w-full", "text-left", "border-collapse", "mb-10");
 
-        const title = document.createElement("h3");
-        title.textContent = `Results for ${position}`;
-        title.classList.add("text-xl", "font-bold", "mb-4", "text-gray-700");
-        section.appendChild(title);
+        const thead = document.createElement("thead");
+        title.innerHTML = 
+        `<tr class=""bg-gray-200 text-gray>
+            <th class="py-2 px-4 border">Name</th>
+            <th class="py-2 px-4 border">Position</th>
+            <th class="py-2 px-4 border">Total Votes</th>
+        </tr>`;
+        
+        table.appendChild(thead);
 
-        const list = document.createElement("ul");
-        Object.entries(voteCount[position]).forEach(([index, count]) => {
-            const name = candidateLookup[position][index];
-            const item = document.createElement("li");
-            item.textContent = `${name}: ${count} vote${count !== 1 ? "s" : ""} `;
-            item.classList.add("mb-2", "text-gray-600")
-            list.appendChild(item)
+        const tbody = document.createElement("tbody");
+        Object.entries(voteCount).forEach(([position, candidatesMap]) => {
+            Object.entries(candidatesMap).forEach(([index, count]) => {
+                const name = candidateLookup[position][index];
+
+                const row = document.createElement("tr");
+                row.innerHTML = 
+                `<td class="py-2 px-4 border">${name}</td>
+                <td class="py-2 px-4 border">${position}</td>
+                <td class="py-2 px-4 border text-center">${count}</td>
+                `;
+                tbody.appendChild(row);
+            });
+           
         });
 
-        section.appendChild(list);
-        resultsContainer.appendChild(section);
+        table.appendChild(tbody);
+        resultsContainer.appendChild(table);
 
     });
 
@@ -168,6 +183,28 @@ document.addEventListener("DOMContentLoaded", () => {
     renderCandidates();
     renderVoteResults();
 });
+
+document.getElementById("logout-btn")?.addEventListener("click", () => {
+    // Remove session-specific data
+    localStorage.removeItem("hasVoted");
+    localStorage.removeItem("user-votes");
+    localStorage.removeItem("voteTime");
+
+    //clear all if needed....localeStorage.clear()
+
+    //redirect to the home page
+    window.location.href = "index.html";
+   
+});
+
+
+function publishResults() {
+    localStorage.setItem("resultsVisible", "true");
+    alert("Results are now available to voters.");
+}
+
+
+
 
 
 
