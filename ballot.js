@@ -59,6 +59,7 @@ document.getElementById("submit-vote").addEventListener("click", () => {
     const requiredGroups = Object.keys(grouped);
     if (inputs.length < requiredGroups.length) {
         alert("Please vote for every position before submitting.");
+        return;
     }
 
     const votes = {};
@@ -66,15 +67,18 @@ document.getElementById("submit-vote").addEventListener("click", () => {
         votes[input.name] = input.value;
     });
 
+    let stored = JSON.parse(localStorage.getItem("votes-record")) || [];
+    stored.push(votes);
+    localStorage.setItem("votes-record", JSON.stringify(stored));
+
+    localStorage.setItem("hasVoted", "true");
     console.log("Votes cast:", votes);
     alert("Your vote has been submitted");
-    localStorage.setItem("hasVoted", "true");
+   
     form.innerHTML = "<p class='text-center text-red-600 font-semibold'>Thank you! Your vote has been recorded.</p>";
     document.getElementById("submit-vote").style.display ="none";
 
-    let stored = JSON.parse(localStorage.getItem("votes-record")) || [];
-    storedVotes.push(votes);
-    localStorage.setItem("votes-record", JSON.stringify(storedVotes));
+    
 });
 
 document.getElementById("logout-btn")?.addEventListener("click", () => {

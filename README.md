@@ -22,7 +22,7 @@
 |-------------------|------------------------------------------------------------|
 | `index.html`      | Main landing page                                          |
 | `admin-sign-in.html`      | Facilitates admin login                                          |
-| `user.html`       | Voting interface for users                                 |
+| `ballot.html`       | Voting interface for users                                 |
 | `admin.html`      | Admin dashboard for adding candidates and viewing results  |
 | `winners.html`    | Displays winning candidates (after admin publishes results)|
 | `notification.html`| Voter summary and result view based on visibility trigger |
@@ -32,7 +32,7 @@
 | `vote.js`         | Voting form and submission handling                        |
 | `admin.js`        | Admin-specific result aggregation and visibility logic     |
 | `notification.js` | Shows user voting summary and status and displays top candidates per position                      |
-| `notification.js` | Shows user voting summary and status                       |
+| `ballot.js` | Handles voting                       |
 | `notification.js` | Shows user voting summary and status                       |
 | `notification.js` | Shows user voting summary and status                       |
 

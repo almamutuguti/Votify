@@ -14,6 +14,7 @@
         crossorigin="anonymous" referrerpolicy="no-referrer" />
 
 </head>
+
 <body class="h-screen">
     <div id="display">
         <!-- navbar -->
@@ -26,7 +27,7 @@
                     <li><a class="menuItem" href="index.html#leadership">Blogs </a></li>
                     <li><a class="menuItem" href="index.html#contact">Contact</a></li>
                     <li><a class="menuItem" href="user.html">Vote</a></li>
-                    <li><a class="menuItem" href="admin-sign-in.html"><i class="fa-solid fa-user-tie"></i></a></li>
+                    <li><a class="menuItem" href="sign-in.html"><i class="fa-solid fa-user-tie"></i></a></li>
                 </ul>
                 <button class="hamburger">
                     <i class="menuIcon material-icons">menu</i>
@@ -39,7 +40,7 @@
             <h2 class="heading items-center justify-center ml-22  mb-10">
                 Welcome Admin
             </h2>
-            
+
             <form class="max-w-md mx-auto bg-white ml-16 lg:m-auto p-4 rounded-md" id="candidate-form">
                 <div class="relative  w-full mb-5 group pt-4">
                     <input type="text" name="candidate-name" id="candidate-name"
@@ -51,16 +52,16 @@
                     <input type="text" name="position" id="position"
                         class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
                         placeholder="Desired Position" required />
-                    
+
                 </div>
-               
-                
+
+
                 <div>
                     <div class="relative z-0 w-full mb-5 group">
                         <input type="email" name="candidate-email" id="candidate-email"
                             class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
                             placeholder="Email Address" required />
-                       
+
                     </div>
                     <div class="relative z-0 w-full mb-5 group">
                         <input type="file" name="manifesto" id="manifesto"
@@ -85,15 +86,16 @@
 
         </section>
 
-        
+
     </div>
 
-    
+
     <div class="bg-white mt-10" id="candidates-list"></div>
     <div class="bg-white mt-10" id="results-list"></div>
+    <div class="bg-white mt-10 text-black" id="admin-preview-results"></div>
     <button onclick="publishResults()" class="bg-green text-white px-4 py-2 rounded">Publish Results To Voters</button>
 
-    <button id="logout-btn" class="bg-red-600 text-white px-4 py-2 rounded mt-6">Logout</button>
+    <button id="logout-btn" class="bg-red-600 text-white px-4 py-2 rounded mt-6 lg:block mx-auto">Logout</button>
 
     <footer class="bg-gray-200  shadow-sm w-full mt-40">
         <div class="w-full max-w-screen-xl mx-auto p-4 md:py-8">
@@ -125,7 +127,7 @@
 
     <script src="admin.js"></script>
     <script src="script.js"></script>
-    
+
 </body>
 
 </html>

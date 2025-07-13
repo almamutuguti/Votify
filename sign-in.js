@@ -28,11 +28,11 @@
 //     // --- PAGE-SPECIFIC LOGIC ---
 //     const currentPage = window.location.pathname.split('/').pop();
 
-//     // --- LOGIC FOR LOGIN.HTML ---
-//     if (currentPage === 'user.html') {
+//     // --- LOGIC FOR ADMIN-SIGN-IN.HTML ---
+//     if (currentPage === 'admin-sign-in.html') {
 //         // If user is already logged in, redirect to index.html
 //         if (sessionStorage.getItem('loggedInUser')) {
-//             window.location.href = 'ballot.html';
+//             window.location.href = 'admin.html';
 //         }
 
 //         const loginFormContainer = document.getElementById('login-form-container');
@@ -105,7 +105,7 @@
 //             if (user && dcodeIO.bcrypt.compareSync(password, user.password)) {
 //                 // On successful login, save user session and redirect
 //                 sessionStorage.setItem('loggedInUser', user.username);
-//                 window.location.href = 'ballot.html';
+//                 window.location.href = 'admin.html';
 //             } else {
 //                 showMessage('Invalid email or password', true);
 //             }
@@ -113,12 +113,12 @@
 //     }
 
 //     // --- LOGIC FOR INDEX.HTML ---
-//     if (currentPage === 'welcome.html') {
+//     if (currentPage === 'admin.html') {
 //         const loggedInUser = sessionStorage.getItem('loggedInUser');
 
 //         // If no user is logged in, redirect to login page
 //         if (!loggedInUser) {
-//             window.location.href = 'user.html';
+//             window.location.href = 'admin-sign-in.html';
 //             return; // Stop further script execution
 //         }
 
@@ -129,47 +129,62 @@
 
 //         logoutButton.addEventListener('click', () => {
 //             sessionStorage.removeItem('loggedInUser');
-//             window.location.href = 'login.html';
+//             window.location.href = 'admin-sign-in.html';
 //         });
 //     }
 // });
 
-// document.getElementById("logout-btn")?.addEventListener("click", () => {
-//     // Remove session-specific data
-//     localStorage.removeItem("hasVoted");
-//     localStorage.removeItem("user-votes");
-//     localStorage.removeItem("voteTime");
-
-//     //clear all if needed....localeStorage.clear()
-
-//     //redirect to the home page
-//     window.location.href = "index.html";
-   
-// });
-
-
-document.getElementById("login-form").addEventListener("submit", (e) => {
+document.getElementById("register-form").addEventListener('submit', (e) => {
     e.preventDefault();
+        const name = document.getElementById("name").value.trim();
+        const email = document.getElementById("email").value.trim();
+        const password = document.getElementById("password").value.trim();
+        const role = document.getElementById("role").value
+        const status = document.getElementById("status");
 
-    const email = document.getElementById("email").value.trim();
-    const password = document.getElementById("password").value.trim();
-    const status = document.getElementById("status");
+        if (!name || !email || !password) {
+            status.textContent = "All fields are required";
+            return;
+        }
 
-    users = JSON.parse(localStorage.getItem("userList")) || [];
-    const user = users.find(user => user.email === email && user.password === password);
+        const users = JSON.parse(localStorage.getItem("userList")) || [];
+        const existing = users.find(user => user.email === email);
 
-    if (!user) {
-        status.textContent = "Invalid Credentials";
-        return;
-    }
+        if (existing) {
+            status.textContent = "This email is already registered.";
+            return;
+        }
 
-    localStorage.setItem("loggedInUser", JSON.stringify(user));
+        users.push({ name, email, password, role });
+        localStorage.setItem("userList", JSON.stringify(users));
+        window.location.href = "user.html";
 
-    if (user.role === "admin") {
-        window.location.href = "admin.html";
-    } else {
-        window.location.href = "ballot.html"
-    }
+    
+})
+
+document.getElementById("register-form").addEventListener("submit", (e) => {
+  e.preventDefault();
+
+  const name = document.getElementById("name").value.trim();
+  const email = document.getElementById("email").value.trim();
+  const password = document.getElementById("password").value.trim();
+  const role = document.getElementById("role").value;
+  const status = document.getElementById("status");
+
+  if (!name || !email || !password) {
+    status.textContent = "All fields are required.";
+    return;
+  }
+
+  const users = JSON.parse(localStorage.getItem("userList")) || [];
+  const existing = users.find(u => u.email === email);
+
+  if (existing) {
+    status.textContent = "This email is already registered.";
+    return;
+  }
+
+  users.push({ name, email, password, role });
+  localStorage.setItem("userList", JSON.stringify(users));
+  window.location.href = "login.html";
 });
-
-       

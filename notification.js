@@ -23,7 +23,7 @@ function renderWinners() {
     });
 
     const voteCount = {};
-    votext.forEach(vote => {
+    votes.forEach(vote => {
         Object.entries(vote).forEach(([position, index]) => {
             if (!voteCount[position]) voteCount[position] = {};
             voteCount[position][index] = (voteCount[position][index] || 0) + 1;
@@ -31,6 +31,7 @@ function renderWinners() {
         });
     });
 
+    winnerList.innerHTML = "";
     Object.entries(voteCount).forEach(([position, results]) => {
         let highestVotes = 0;
         let winnerIndex = null;
@@ -62,5 +63,18 @@ function renderWinners() {
        }
     });
 }
+
+document.getElementById("logout-btn")?.addEventListener("click", () => {
+    // Remove session-specific data
+    localStorage.removeItem("hasVoted");
+    localStorage.removeItem("user-votes");
+    localStorage.removeItem("voteTime");
+
+    //clear all if needed....localeStorage.clear()
+
+    //redirect to the home page
+    window.location.href = "index.html";
+   
+});
 
 document.addEventListener("DOMContentLoaded", renderWinners);
