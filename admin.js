@@ -40,23 +40,23 @@ function renderCandidates() {
 
         const title = document.createElement("h3");
         title.textContent = position;
-        title.classList.add("text-2xl", "font-bold", "mb-4", "text-gray-800");
+        title.classList.add("text-3xl", "underline", "font-bold", "mb-4", "text-gray-800");
 
         const grid = document.createElement("div");
         grid.classList.add("grid", "grid-cols-1", "md:grid-cols-2", "lg:grid-cols-3", "gap-6");
 
         grouped[position].forEach((c) => {
             const div = document.createElement("div");
-            div.classList.add("rounded-lg", "bg-gray-600", "p-4", "flex", "flex-col", "items-center", "text-white");
+            div.classList.add("rounded-lg", "bg-gray-300", "p-4", "flex", "flex-col", "items-center", "text-black", "shadow-2xl");
 
             div.innerHTML =
                 `<img src="${c.profile}" alt="profile" class="h-32 object-cover rounded-full mb-4 w-32">
-            <h2 class="text-3xl font-bold">${c.name}</h2>
-            <h4 class="text-xl font-semibold">${c.position}</h4>
-            <p class="text-sm">${c.email}</p>
-            <p class="text-l">Click here to read the manifesto: <a href="${c.manifesto}" target="_blank">Read Manifesto</a></p>
+                <h2 class="text-3xl font-bold">${c.name}</h2>
+                <h4 class="text-xl font-semibold">${c.position}</h4>
+                <p class="text-sm">${c.email}</p>
+                <p class="text-l">Click here to read the manifesto: <a href="${c.manifesto}" target="_blank" class="text-blue-400 hover:underline">Read Manifesto</a></p>
 
-            <button class="bg-red-600 text-white px-4 py-2 mt-4 rounded delete-btn" data-index="${c.index}"> Delete</button>
+                <button class="bg-red-600 text-white px-4 py-2 mt-4 rounded delete-btn duration-700 ease-in-out hover:bg-red-400" data-index="${c.index}"> Delete</button>
                 
             `;
             grid.appendChild(div);

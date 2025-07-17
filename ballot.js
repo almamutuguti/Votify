@@ -18,7 +18,7 @@ function renderVotingForm() {
 
         const title = document.createElement("h3");
         title.textContent = `Vote for ${position}`;
-        title.classList.add("text-xl" , "font-bold", "mb-4");
+        title.classList.add("text-3xl", "outline-dotted", "font-semibold", "italic", "mb-4", "text-center", "mx-auto");
         section.appendChild(title);
 
         const grid = document.createElement("div");
@@ -26,12 +26,12 @@ function renderVotingForm() {
 
         grouped[position].forEach((c) => {
             const label = document.createElement("label");
-            label.classList.add("rounded-lg", "bg-gray-600", "p-4", "flex", "flex-col", "items-center", "text-white", "cursor-pointer");
+            label.classList.add("rounded-lg", "bg-gray-200", "p-4", "flex", "flex-col", "items-center", "text-gray-800", "cursor-pointer", "shadow-2xl", "hover:animate-pulse", "duration-200", "ease-in-out");
             label.innerHTML = 
             `<input type="radio" name="${position}" value="${c.index}" class="mb-4"/>
             <img src="${c.profile}" alt="profile" class="h-32 object-cover rounded-full mb-4 w-32">
             <h2 class="text-3xl font-bold">${c.name}</h2>
-            <p class="text-l">Click here to read the manifesto: <a href="${c.manifesto}" target="_blank">Read Manifesto</a></p>
+            <p class="text-l">Click here to read the manifesto: <a href="${c.manifesto}" target="_blank" class="text-blue-500 hover:underline">Read Manifesto</a></p>
             `;
             grid.appendChild(label);
         });
